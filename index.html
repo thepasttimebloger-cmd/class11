@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Class 11 CS - Chapter 1</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --bg: #f8f9fa;
+            --white: #ffffff;
+            --text: #2d3436;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            line-height: 1.7;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+        }
+
+        .wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        h1 { color: var(--primary); text-align: center; border-bottom: 4px solid var(--secondary); padding-bottom: 10px; }
+        h2 { color: var(--secondary); margin-top: 40px; border-left: 6px solid var(--secondary); padding-left: 15px; background: #eef2f3; }
+        h3 { color: var(--primary); margin-top: 25px; text-decoration: underline; }
+
+        .definition-box {
+            background: #f1faff;
+            border: 1px solid #b3e5fc;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        .tech-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .tech-table th, .tech-table td {
+            border: 1px solid #dfe6e9;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .tech-table th { background: var(--primary); color: white; }
+
+        .info-card {
+            border: 1px solid #dcdde1;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .unit { font-weight: bold; color: #d63031; }
+    </style>
+</head>
+<body>
+
+<div class="wrapper">
+    <h1>Chapter 1: Computer System</h1>
+
+    <section>
+        <h2>1. Computer System Overview</h2>
+        <p>A computer system is an integrated unit of hardware and software. It follows the <strong>IPO (Input-Process-Output)</strong> cycle.</p>
+        
+    </section>
+
+    <section>
+        <h2>2. Central Processing Unit (CPU)</h2>
+        <div class="definition-box">
+            <strong>The CPU:</strong> The main chip that carries out all instructions.
+        </div>
+        <ul>
+            <li><strong>ALU (Arithmetic Logic Unit):</strong> Performs calculations (add, subtract) and comparisons (Equal to, Less than).</li>
+            <li><strong>CU (Control Unit):</strong> Coordinates the flow of data between CPU, memory, and devices.</li>
+            <li><strong>Registers:</strong> High-speed internal storage for the CPU to hold data being processed <em>right now</em>.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>3. Memory System</h2>
+        <h3>A. Primary Memory</h3>
+        <ul>
+            <li><strong>RAM:</strong> Volatile memory that stores data of currently running apps.</li>
+            <li><strong>ROM:</strong> Non-volatile; contains permanent start-up instructions (firmware).</li>
+            <li><strong>Cache:</strong> Sits between CPU and RAM to store frequently used data for instant access.</li>
+        </ul>
+        <h3>B. Secondary Memory</h3>
+        <p>Permanent storage like <strong>HDDs (Hard Disks), SSDs, and Pen Drives</strong>.</p>
+        <h3>C. Memory Units</h3>
+        <p>1 Bit (0/1) &rarr; 8 Bits = <span class="unit">1 Byte</span> &rarr; 1024 B = <span class="unit">1 KB</span> &rarr; 1024 KB = <span class="unit">1 MB</span> &rarr; 1024 MB = <span class="unit">1 GB</span> &rarr; 1024 GB = <span class="unit">1 TB</span>.</p>
+    </section>
+
+    <section>
+        <h2>4. Software & Utilities</h2>
+        <div class="info-card">
+            <h3>System Software</h3>
+            <p><strong>Operating System (OS):</strong> Manages hardware and provides a platform for applications (e.g., Windows, macOS, Linux).</p>
+            
+            <p><strong>Language Processors:</strong> Necessary because computers only understand machine code (0s and 1s).</p>
+            <ul>
+                <li><strong>Assembler:</strong> Converts Assembly language to Machine code.</li>
+                <li><strong>Interpreter:</strong> Converts high-level code to machine code <em>line-by-line</em>.</li>
+                <li><strong>Compiler:</strong> Converts the <em>entire</em> program into machine code at once.</li>
+            </ul>
+
+            <p><strong>System Utilities:</strong> Software designed to maintain, configure, and optimize the computer system.</p>
+            <ul>
+                <li><strong>Antivirus:</strong> Protects the system from malicious software.</li>
+                <li><strong>Disk Defragmenter:</strong> Reorganizes files on a hard disk for faster access.</li>
+                <li><strong>Compression Tools:</strong> Reduces file sizes (e.g., WinZip, 7-Zip).</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h3>Application Software</h3>
+            <p><strong>General Purpose:</strong> Ready-to-use software like MS Word or Web Browsers.</p>
+            <p><strong>Customized (Bespoke):</strong> Tailor-made for a specific organization (e.g., Railway Reservation System).</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>5. OS Functions</h2>
+        <div class="definition-box">
+            <ul>
+                <li><strong>Process Management:</strong> Allocating CPU time to different tasks.</li>
+                <li><strong>Memory Management:</strong> Tracking which parts of memory are in use.</li>
+                <li><strong>File Management:</strong> Keeping track of where data is stored on disks.</li>
+                <li><strong>Device Management:</strong> Communicating with hardware via "Device Drivers."</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>6. Microprocessors & Data Transfer</h2>
+        <p>A microprocessor is a single-chip CPU. Data moves through physical wires called <strong>Buses</strong>:</p>
+        
+        <ul>
+            <li><strong>Data Bus:</strong> Carries the actual values being processed.</li>
+            <li><strong>Address Bus:</strong> Carries the "location" of where data should go.</li>
+            <li><strong>Control Bus:</strong> Carries commands (Read/Write signals).</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>7. Evolution & Mobile Systems</h2>
+        <p>Computers evolved from <strong>Vacuum Tubes</strong> (1st Gen) to <strong>AI/ULSI</strong> (5th Gen). Modern Mobiles use a <strong>System on a Chip (SoC)</strong> which combines CPU, GPU, and Power Management on one tiny chip.</p>
+    </section>
+
+    <footer style="text-align: center; margin-top: 50px; color: #95a5a6;">
+        &copy; 2026 Class 11 Computer Science Study Portal
+    </footer>
+</div>
+
+</body>
+</html>
