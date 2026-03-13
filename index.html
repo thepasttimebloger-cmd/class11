@@ -819,6 +819,341 @@
             </tr>
         </table>
     </section>
+<h1>Chapter 7: Tuples (Deep Dive)</h1>
+
+    <section>
+        <h2>1. The Tuple Structure</h2>
+        <p>A Tuple is an <strong>ordered, immutable</strong> sequence. Because they are immutable, Python can optimize their memory, making them significantly faster than lists for large datasets.</p>
+        
+        <div class="info-card">
+            <h3>A. Advanced Creation Techniques</h3>
+            <div class="definition-box" style="font-family: monospace; background: #1e1e1e; color: #dcdcdc; border: 1px solid #444;">
+                <span style="color: #6a9955;"># Creating a tuple without parentheses (Implicit Packing)</span><br>
+                t1 = 1, 2, 3, 4<br>
+                print(type(t1)) <span style="color: #6a9955;"># Output: &lt;class 'tuple'&gt;</span><br><br>
+
+                <span style="color: #6a9955;"># Using the eval() function for dynamic tuple input</span><br>
+                t2 = eval(input("Enter multiple values: "))<br>
+                <span style="color: #6a9955;"># If user enters 10, 20, 30 &rarr; t2 becomes (10, 20, 30)</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. High-Level Tuple Functions (Data Analysis)</h2>
+        <p>These functions are essential for analyzing data patterns within a tuple, often compared to basic Pandas operations.</p>
+        
+        <table class="tech-table">
+            <thead>
+                <tr>
+                    <th>Function</th>
+                    <th>Purpose</th>
+                    <th>Functional Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>any(t)</strong></td>
+                    <td>Returns <strong>True</strong> if at least one element is non-zero/True.</td>
+                    <td><code>any((0, False, 5))</code> &rarr; <code>True</code></td>
+                </tr>
+                <tr>
+                    <td><strong>all(t)</strong></td>
+                    <td>Returns <strong>True</strong> only if ALL elements are non-zero/True.</td>
+                    <td><code>all((1, 2, 0))</code> &rarr; <code>False</code></td>
+                </tr>
+                <tr>
+                    <td><strong>sum(t)</strong></td>
+                    <td>Calculates the total of all numeric elements.</td>
+                    <td><code>sum((10, 20, 30))</code> &rarr; <code>60</code></td>
+                </tr>
+                <tr>
+                    <td><strong>sorted(t)</strong></td>
+                    <td>Returns a new <strong>List</strong> containing elements in order.</td>
+                    <td><code>sorted((3, 1, 2))</code> &rarr; <code>[1, 2, 3]</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>3. Practical Manipulation & Methods</h2>
+        <p>Even though tuples are immutable, we can perform operations that return <em>new</em> tuples.</p>
+
+        <div class="info-card">
+            <h3>A. Tuple Methods</h3>
+            <div class="definition-box" style="font-family: monospace; background: #1e1e1e; color: #dcdcdc;">
+                t = (10, 20, 30, 20, 40)<br><br>
+                <span style="color: #6a9955;"># index(x): Finds the first position of x</span><br>
+                print(t.index(20)) <span style="color: #6a9955;"># Output: 1</span><br><br>
+
+                <span style="color: #6a9955;"># count(x): Counts how many times x appears</span><br>
+                print(t.count(20)) <span style="color: #6a9955;"># Output: 2</span>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <h3>B. Swapping Values (Tuple Unpacking)</h3>
+            <p>A classic exam question. Python uses tuple unpacking to swap variables without a third 'temp' variable.</p>
+            <div class="definition-box" style="font-family: monospace; background: #1e1e1e; color: #dcdcdc;">
+                a, b = 10, 20<br>
+                a, b = b, a<br>
+                print(a, b) <span style="color: #6a9955;"># Output: 20 10</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>4. Nested Tuples</h2>
+        <p>Storing tuples within tuples is used to represent table-like (tabular) data structures.</p>
+        <div class="definition-box" style="font-family: monospace; background: #1e1e1e; color: #dcdcdc;">
+            students = ((1, "Raj", 90), (2, "Simran", 95))<br>
+            <span style="color: #6a9955;"># Accessing Simran's Marks:</span><br>
+            print(students[1][2]) <span style="color: #6a9955;"># Output: 95</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>5. Deleting a Tuple</h2>
+        <p>You cannot delete a single element from a tuple due to immutability, but you can delete the entire tuple from memory.</p>
+        <div class="definition-box" style="font-family: monospace; background: #1e1e1e; color: #dcdcdc;">
+            t = (1, 2, 3)<br>
+            <span style="color: #569cd6;">del</span> t<br>
+            <span style="color: #6a9955;"># print(t) would now raise a NameError</span>
+        </div>
+        
+    </section>
+<h1>Chapter 8: Dictionaries (The Mapping Type)</h1>
+
+    <section>
+        <h2>1. Fundamental Properties</h2>
+        <p>A dictionary is an <strong>unordered, mutable</strong> collection of <code>key:value</code> pairs. Unlike sequences indexed by numbers, dictionaries are indexed by <strong>Keys</strong>.</p>
+        
+        <div class="info-card">
+            <h3>A. Key vs. Value Rules</h3>
+            <table class="tech-table">
+                <tr>
+                    <th>Feature</th>
+                    <th>Keys</th>
+                    <th>Values</th>
+                </tr>
+                <tr>
+                    <td><strong>Mutability</strong></td>
+                    <td>Must be <strong>Immutable</strong> (String, Number, Tuple)</td>
+                    <td>Can be any type (Mutable or Immutable)</td>
+                </tr>
+                <tr>
+                    <td><strong>Uniqueness</strong></td>
+                    <td>Must be <strong>Unique</strong> (No duplicates)</td>
+                    <td>Can be duplicated</td>
+                </tr>
+            </tbody>
+            </table>
+        </div>
+
+        <h3>B. Creating Dictionaries</h3>
+        <div class="definition-box" style="font-family: monospace; background: #1e1e1e; color: #dcdcdc;">
+            <span style="color: #6a9955;"># Method 1: Using Curly Braces</span><br>
+            d1 = {"Roll": 1, "Name": "Amit"}<br><br>
+            <span style="color: #6a9955;"># Method 2: dict() Constructor with keyword arguments</span><br>
+            d2 = dict(Roll=2, Name="Sita")<br><br>
+            <span style="color: #6a9955;"># Method 3: dict() with a list of tuples (Mapping)</span><br>
+            d3 = dict([("A", 10), ("B", 20)])<br>
+            print(d3) <span style="color: #6a9955;"># Output: {'A': 10, 'B': 20}</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. High-Weightage Analysis Functions</h2>
+        <p>These functions act like "Panda-style" logic for quick data validation across dictionary keys.</p>
+        
+        <table class="tech-table">
+            <thead>
+                <tr>
+                    <th>Function</th>
+                    <th>Description</th>
+                    <th>Functional Example (d = {1: 'A', 0: 'B'})</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>any(d)</strong></td>
+                    <td>True if ANY <strong>key</strong> is non-zero/True.</td>
+                    <td><code>any(d)</code> &rarr; <code>True</code></td>
+                </tr>
+                <tr>
+                    <td><strong>all(d)</strong></td>
+                    <td>True if ALL <strong>keys</strong> are non-zero/True.</td>
+                    <td><code>all(d)</code> &rarr; <code>False</code> (because of 0)</td>
+                </tr>
+                <tr>
+                    <td><strong>sorted(d)</strong></td>
+                    <td>Returns a sorted <strong>List</strong> of keys.</td>
+                    <td><code>sorted(d)</code> &rarr; <code>[0, 1]</code></td>
+                </tr>
+                <tr>
+                    <td><strong>len(d)</strong></td>
+                    <td>Returns count of key-value pairs.</td>
+                    <td><code>len(d)</code> &rarr; <code>2</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>3. Advanced Manipulation Methods</h2>
+        <div class="info-card">
+            <div class="definition-box" style="font-family: monospace; background: #1e1e1e; color: #dcdcdc;">
+                stock = {"Apple": 50, "Banana": 20}<br><br>
+                
+                <span style="color: #6a9955;"># 1. get(key, default): Avoids KeyError if key is missing</span><br>
+                print(stock.get("Mango", 0)) <span style="color: #6a9955;"># Output: 0</span><br><br>
+
+                <span style="color: #6a9955;"># 2. update(other_dict): Merges and overwrites duplicates</span><br>
+                stock.update({"Apple": 60, "Orange": 30})<br><br>
+
+                <span style="color: #6a9955;"># 3. pop(key): Removes specific key and returns its value</span><br>
+                val = stock.pop("Banana") <span style="color: #6a9955;"># Returns 20</span><br><br>
+
+                <span style="color: #6a9955;"># 4. setdefault(key, default): Returns value, or inserts if missing</span><br>
+                stock.setdefault("Kiwi", 10)
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>4. Iteration and Complex Structures</h2>
+        <div class="grid-list">
+            <div class="card">
+                <strong>Keys, Values, Items:</strong><br>
+                <code>d.keys()</code> &rarr; List of keys<br>
+                <code>d.values()</code> &rarr; List of values<br>
+                <code>d.items()</code> &rarr; List of (K, V) tuples
+            </div>
+            <div class="card">
+                <strong>Safe Traversal:</strong><br>
+                <code>for k, v in d.items():<br>&nbsp;&nbsp;print(k, v)</code>
+            </div>
+        </div>
+
+        <h3>Nested Dictionary Example</h3>
+        <p>Representing structured data like Employee records.</p>
+        <div class="definition-box" style="font-family: monospace; background: #2d3436; color: #00ff00;">
+            Employees = {<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;101: {"Name": "Ali", "Dept": "Sales"},<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;102: {"Name": "Zoya", "Dept": "IT"}<br>
+            }<br>
+            <span style="color: #6a9955;"># Accessing Zoya's Department:</span><br>
+            print(Employees[102]["Dept"]) <span style="color: #6a9955;"># Output: IT</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>5. Practical Case: Frequency Counter</h2>
+        <p>A classic exam program using the <code>in</code> membership operator.</p>
+        <div class="definition-box" style="font-family: monospace; background: #1e1e1e; color: #dcdcdc;">
+            text = "banana"<br>
+            count = {}<br>
+            <span style="color: #569cd6;">for</span> char <span style="color: #569cd6;">in</span> text:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #569cd6;">if</span> char <span style="color: #569cd6;">in</span> count:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count[char] += 1<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #569cd6;">else</span>:<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count[char] = 1<br>
+            print(count) <span style="color: #6a9955;"># Output: {'b': 1, 'a': 3, 'n': 2}</span>
+        </div>
+    </section>
+<h1>Chapter 9: Societal Impact (Law and Ethics)</h1>
+
+    <section>
+        <h2>1. Digital Footprint</h2>
+        <p>A digital footprint is the trail of data you create while using the internet. It includes websites you visit, emails you send, and information you submit to online services.</p>
+        
+        <div class="grid-list">
+            <div class="card">
+                <strong>Active Digital Footprint:</strong> Created when a user deliberately shares information (e.g., posting on social media, sending emails, filling out online forms).
+            </div>
+            <div class="card">
+                <strong>Passive Digital Footprint:</strong> Created when data is collected without the user's active knowledge (e.g., websites tracking your IP address, browsing history, or location).
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Digital Etiquette (Netiquette)</h2>
+        <p>Netiquette is short for "Network Etiquette." It refers to the rules of behavior for the online world.</p>
+        <div class="info-card">
+            <ul>
+                <li><strong>Be Ethical:</strong> Do not use the internet to steal or harm others.</li>
+                <li><strong>Respect Privacy:</strong> Do not read others' emails or share their private data.</li>
+                <li><strong>Don't "Shout":</strong> Avoid typing in ALL CAPS, as it is considered shouting online.</li>
+                <li><strong>Avoid Cyberbullying:</strong> Do not post insulting or harassing comments.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Intellectual Property Rights (IPR)</h2>
+        <p>IPR are the legal rights given to an individual for their original creations. Violating these rights leads to serious legal consequences.</p>
+        
+        <table class="tech-table">
+            <tr>
+                <th>Violation</th>
+                <th>Definition & Detail</th>
+            </tr>
+            <tr>
+                <td><strong>Plagiarism</strong></td>
+                <td>Presenting someone else's work or ideas as your own without giving proper credit.</td>
+            </tr>
+            <tr>
+                <td><strong>Copyright Infringement</strong></td>
+                <td>Unauthorized use of copyrighted material (Music, Movies, Software).</td>
+            </tr>
+            <tr>
+                <td><strong>Trademark Infringement</strong></td>
+                <td>Unauthorized use of a brand's logo or name.</td>
+            </tr>
+        </table>
+
+        <h3>Licensing and Open Source</h3>
+        <ul>
+            <li><strong>FOSS (Free and Open Source Software):</strong> Software that is free and provides the source code (e.g., Python, Linux).</li>
+            <li><strong>Proprietary Software:</strong> Paid software where the source code is hidden (e.g., Windows, Photoshop).</li>
+            <li><strong>Creative Commons (CC):</strong> A public copyright license that enables the free distribution of otherwise copyrighted work.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>4. Cyber Crime and Safety</h2>
+        <div class="info-card">
+            <p><strong>Cybercrime:</strong> Any criminal activity that involves a computer, networked device, or a network.</p>
+            <ul>
+                <li><strong>Phishing:</strong> Sending fraudulent emails to steal sensitive data like credit card numbers.</li>
+                <li><strong>Hacking:</strong> Gaining unauthorized access to data in a system or computer.</li>
+                <li><strong>Cyber Stalking:</strong> Using the internet to harass or stalk an individual.</li>
+                <li><strong>Adware:</strong> Software that automatically displays or downloads advertising material.</li>
+            </ul>
+        </div>
+
+        <h3>The IT Act, 2000</h3>
+        <p>In India, the <strong>Information Technology Act, 2000</strong> provides the legal framework to deal with cybercrime. It deals with electronic records, digital signatures, and penalties for data theft or hacking.</p>
+    </section>
+
+    <section>
+        <h2>5. E-Waste Management</h2>
+        <p>Electronic waste refers to discarded electronic devices. These devices contain hazardous materials like lead, mercury, and cadmium.</p>
+        <div class="definition-box">
+            <strong>The 4 Rs:</strong> Reduce, Reuse, Recycle, and Recover. E-waste should always be handed over to authorized recyclers to prevent soil and water pollution.
+        </div>
+    </section>
+
+    <section>
+        <h2>6. Technology and Inclusivity</h2>
+        <p>Ensuring that technology is accessible to everyone, regardless of their physical ability or gender.</p>
+        <ul>
+            <li><strong>Gender Inclusivity:</strong> Encouraging more women and non-binary individuals in STEM (Science, Technology, Engineering, Math).</li>
+            <li><strong>Disability Issues:</strong> Using <strong>Assistive Technology</strong> such as Screen Readers, Speech-to-Text software, and specialized keyboards for the visually or hearing impaired.</li>
+        </ul>
+    </section>
     <footer style="text-align: center; margin-top: 50px; color: #95a5a6;">
         &copy; 2026 Class 11 Computer Science Study Portal
     </footer>
