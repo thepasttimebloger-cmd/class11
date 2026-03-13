@@ -66,6 +66,8 @@
 
         .unit { font-weight: bold; color: #d63031; }
     </style>
+    
+
 </head>
 <body>
 
@@ -159,11 +161,145 @@
         <h2>7. Evolution & Mobile Systems</h2>
         <p>Computers evolved from <strong>Vacuum Tubes</strong> (1st Gen) to <strong>AI/ULSI</strong> (5th Gen). Modern Mobiles use a <strong>System on a Chip (SoC)</strong> which combines CPU, GPU, and Power Management on one tiny chip.</p>
     </section>
+    
+    
+<h1>Chapter 2: Data Representation & Boolean Logic</h1>
+
+    <section>
+        <h2>1. Digital Number Systems</h2>
+        <p>Computers represent data using different number systems. The <strong>Base</strong> or <strong>Radix</strong> indicates the total number of digits available in that system.</p>
+        
+        <table class="tech-table">
+            <thead>
+                <tr>
+                    <th>System</th>
+                    <th>Base</th>
+                    <th>Digits/Symbols Used</th>
+                    <th>Example</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Binary</strong></td>
+                    <td>2</td>
+                    <td>0, 1</td>
+                    <td>(1101)<sub>2</sub></td>
+                </tr>
+                <tr>
+                    <td><strong>Octal</strong></td>
+                    <td>8</td>
+                    <td>0, 1, 2, 3, 4, 5, 6, 7</td>
+                    <td>(72)<sub>8</sub></td>
+                </tr>
+                <tr>
+                    <td><strong>Decimal</strong></td>
+                    <td>10</td>
+                    <td>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</td>
+                    <td>(98)<sub>10</sub></td>
+                </tr>
+                <tr>
+                    <td><strong>Hexadecimal</strong></td>
+                    <td>16</td>
+                    <td>0-9, A(10), B(11), C(12), D(13), E(14), F(15)</td>
+                    <td>(A2B)<sub>16</sub></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>2. Internal Data Representation</h2>
+        <div class="info-card">
+            <h3>A. Character Encoding</h3>
+            <p>Characters (letters, symbols) are mapped to numeric values via encoding schemes:</p>
+            <ul>
+                <li><strong>ASCII:</strong> Uses 7 bits (128 characters) or 8 bits (Extended). Primarily for English.</li>
+                <li><strong>ISCII:</strong> 8-bit code designed to represent Indian scripts (Hindi, Marathi, etc.).</li>
+                <li><strong>Unicode:</strong> A universal standard (UTF-8, UTF-16) that covers almost every character in existence, including emojis and rare languages.</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h3>B. Representing Integers (Positive & Negative)</h3>
+            <ul>
+                <li><strong>Unsigned:</strong> Only positive numbers are stored.</li>
+                <li><strong>Sign-Magnitude:</strong> The MSB (Most Significant Bit) is 0 for (+) and 1 for (-).</li>
+                <li><strong>1's Complement:</strong> Created by inverting all bits (0 to 1 and 1 to 0).</li>
+                <li><strong>2's Complement:</strong> 1's Complement + 1. <em>Note: This is the standard for modern computer arithmetic.</em></li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h3>C. Real Numbers (Floating Point)</h3>
+            <p>Stored using the formula: <strong>Sign &times; Mantissa &times; Base<sup>Exponent</sup></strong>. This allows the computer to represent very small decimals or massive values efficiently.</p>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. Boolean Logic & Truth Tables</h2>
+        <p>Boolean logic deals with binary variables and logical operations. A <strong>Truth Table</strong> shows all possible input-output combinations.</p>
+        
+        <h3>Basic Logic Gates</h3>
+        <table class="tech-table">
+            <tr>
+                <th>Gate</th>
+                <th>Logical Function</th>
+                <th>Expression</th>
+                <th>Truth Table (A, B)</th>
+            </tr>
+            <tr>
+                <td><strong>NOT</strong></td>
+                <td>Inversion (Unary)</td>
+                <td>Y = A'</td>
+                <td>0 &rarr; 1 | 1 &rarr; 0</td>
+            </tr>
+            <tr>
+                <td><strong>OR</strong></td>
+                <td>Logical Addition</td>
+                <td>Y = A + B</td>
+                <td>0+0=0, 0+1=1, 1+0=1, 1+1=1</td>
+            </tr>
+            <tr>
+                <td><strong>AND</strong></td>
+                <td>Logical Multiplication</td>
+                <td>Y = A &sdot; B</td>
+                <td>0&sdot;0=0, 0&sdot;1=0, 1&sdot;0=0, 1&sdot;1=1</td>
+            </tr>
+        </table>
+
+        <h3>Universal & Derived Gates</h3>
+        <div class="grid-list">
+            <div class="card">
+                <strong>NAND Gate:</strong> NOT of AND. It is "Universal" because any other gate can be built using only NAND.
+            </div>
+            <div class="card">
+                <strong>NOR Gate:</strong> NOT of OR. Also a "Universal" gate.
+            </div>
+            <div class="card">
+                <strong>XOR (Exclusive OR):</strong> Output is 1 only if inputs are <em>different</em> (0,1 or 1,0).
+            </div>
+            <div class="card">
+                <strong>XNOR:</strong> Output is 1 only if inputs are the <em>same</em> (0,0 or 1,1).
+            </div>
+        </div>
+    </section>
+
+   <section>
+    <h2>4. De Morgan's Laws</h2>
+    <div class="definition-box">
+        <p>These laws are used to simplify Boolean expressions:</p>
+        <ol>
+            <li><strong>First Law:</strong> The complement of a sum is equal to the product of the complements.<br>
+            <em>Expression:</em> (A + B)' = A' · B'</li>
+            <li><strong>Second Law:</strong> The complement of a product is equal to the sum of the complements.<br>
+            <em>Expression:</em> (A · B)' = A' + B'</li>
+        </ol>
+    </div>
+</section>
 
     <footer style="text-align: center; margin-top: 50px; color: #95a5a6;">
         &copy; 2026 Class 11 Computer Science Study Portal
     </footer>
 </div>
-
 </body>
 </html>
