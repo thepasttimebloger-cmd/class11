@@ -522,7 +522,303 @@
             &nbsp;&nbsp;&nbsp;&nbsp;print()
         </div>
     </section>
+    <h1>Chapter 5: Strings in Python</h1>
 
+    <section>
+        <h2>1. Introduction to Strings</h2>
+        <p>A string is a sequence of characters enclosed in single quotes (<code>' '</code>), double quotes (<code>" "</code>), or triple quotes (<code>''' '''</code>). Strings are <strong>Immutable</strong>, meaning once created, their elements cannot be changed in place.</p>
+        
+        <div class="info-card">
+            <h3>Traversing a String</h3>
+            <p>Accessing each character of a string from start to end using a loop:</p>
+            <div class="definition-box" style="font-family: monospace; background: #1e1e1e; color: #dcdcdc;">
+                msg = <span style="color: #ce9178;">"Python"</span><br>
+                <span style="color: #569cd6;">for</span> char <span style="color: #569cd6;">in</span> msg:<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;print(char, end=<span style="color: #ce9178;">"-"</span>)<br>
+                <span style="color: #6a9955;"># Output: P-y-t-h-o-n-</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Indexing and Slicing</h2>
+        <p>Python strings support two-way indexing:</p>
+        <ul>
+            <li><strong>Forward Indexing:</strong> Starts from 0 (left to right).</li>
+            <li><strong>Backward Indexing:</strong> Starts from -1 (right to left).</li>
+        </ul>
+        
+        <table class="tech-table">
+            <tr>
+                <th>P</th><th>y</th><th>t</th><th>h</th><th>o</th><th>n</th>
+            </tr>
+            <tr>
+                <td>0</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+            </tr>
+            <tr>
+                <td>-6</td><td>-5</td><td>-4</td><td>-3</td><td>-2</td><td>-1</td>
+            </tr>
+        </table>
+
+        <h3>String Slicing</h3>
+        <p><strong>Syntax:</strong> <code>string[start : stop : step]</code></p>
+        <div class="definition-box" style="font-family: monospace; background: #1e1e1e; color: #dcdcdc;">
+            s = <span style="color: #ce9178;">"Computer"</span><br>
+            print(s[0:4]) <span style="color: #6a9955;"># 'Comp' (stops at index 3)</span><br>
+            print(s[::2]) <span style="color: #6a9955;"># 'Cmue' (every 2nd char)</span><br>
+            print(s[::-1]) <span style="color: #6a9955;"># 'retupmoC' (reverses string)</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. String Operators</h2>
+        <table class="tech-table">
+            <tr>
+                <th>Operator</th>
+                <th>Name</th>
+                <th>Example</th>
+                <th>Result</th>
+            </tr>
+            <tr>
+                <td><strong>+</strong></td>
+                <td>Concatenation</td>
+                <td><code>"Hot" + "Dog"</code></td>
+                <td>"HotDog"</td>
+            </tr>
+            <tr>
+                <td><strong>*</strong></td>
+                <td>Replication</td>
+                <td><code>"Hi" * 3</code></td>
+                <td>"HiHiHi"</td>
+            </tr>
+            <tr>
+                <td><strong>in</strong></td>
+                <td>Membership</td>
+                <td><code>"a" in "apple"</code></td>
+                <td>True</td>
+            </tr>
+            <tr>
+                <td><strong>not in</strong></td>
+                <td>Membership</td>
+                <td><code>"x" not in "apple"</code></td>
+                <td>True</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>4. Essential String Methods</h2>
+        <p>Common built-in functions used to manipulate strings:</p>
+        <div class="grid-list">
+            <div class="card">
+                <strong>len(s):</strong> Returns total characters.
+            </div>
+            <div class="card">
+                <strong>s.capitalize():</strong> Converts first letter to uppercase.
+            </div>
+            <div class="card">
+                <strong>s.upper() / s.lower():</strong> Converts entire string case.
+            </div>
+            <div class="card">
+                <strong>s.title():</strong> Capitalizes first letter of every word.
+            </div>
+            <div class="card">
+                <strong>s.index(sub):</strong> Returns lowest index of substring (Error if not found).
+            </div>
+            <div class="card">
+                <strong>s.find(sub):</strong> Returns index of substring (-1 if not found).
+            </div>
+            <div class="card">
+                <strong>s.count(sub):</strong> Counts occurrences of a substring.
+            </div>
+            <div class="card">
+                <strong>s.strip():</strong> Removes leading/trailing whitespace.
+            </div>
+            <div class="card">
+                <strong>s.replace(old, new):</strong> Replaces all occurrences of a word.
+            </div>
+            <div class="card">
+                <strong>s.split():</strong> Breaks string into a <strong>List</strong> based on spaces.
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>5. String Validation (is... methods)</h2>
+        <p>These methods return <strong>True</strong> or <strong>False</strong>:</p>
+        <ul>
+            <li><code>s.isalnum()</code>: True if all are letters or numbers.</li>
+            <li><code>s.isalpha()</code>: True if all are alphabets.</li>
+            <li><code>s.isdigit()</code>: True if all are digits.</li>
+            <li><code>s.islower() / s.isupper()</code>: Checks case.</li>
+            <li><code>s.isspace()</code>: True if string contains only whitespace.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>6. Ordinal and Character Values</h2>
+        <p>Used to find ASCII/Unicode values:</p>
+        <ul>
+            <li><code>ord('A')</code> &rarr; 65</li>
+            <li><code>chr(65)</code> &rarr; 'A'</li>
+        </ul>
+    </section>
+<h1>Chapter 6: Lists in Python</h1>
+
+    <section>
+        <h2>1. Introduction to Lists</h2>
+        <p>A list is a <strong>mutable</strong>, ordered sequence of elements. Unlike strings, lists can be modified in place. They can contain elements of different data types (heterogeneous).</p>
+        <div class="definition-box">
+            <strong>Key Property:</strong> Mutability. You can change, add, or remove elements without creating a new list object.
+        </div>
+    </section>
+
+    <section>
+        <h2>2. Accessing Elements</h2>
+        <p>Lists use the same indexing and slicing logic as strings:</p>
+        <ul>
+            <li><strong>Indexing:</strong> <code>L[0]</code> is the first element; <code>L[-1]</code> is the last.</li>
+            <li><strong>Slicing:</strong> <code>L[start:stop:step]</code></li>
+        </ul>
+        <div class="definition-box" style="font-family: monospace; background: #1e1e1e; color: #dcdcdc;">
+            colors = ["Red", "Green", "Blue"]<br>
+            colors[1] = "Yellow" <span style="color: #6a9955;"># Green is now Yellow (Mutability)</span><br>
+            print(colors) <span style="color: #6a9955;"># Output: ['Red', 'Yellow', 'Blue']</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>3. List Operations</h2>
+        <table class="tech-table">
+            <tr>
+                <th>Operator</th>
+                <th>Operation</th>
+                <th>Example</th>
+                <th>Result</th>
+            </tr>
+            <tr>
+                <td><strong>+</strong></td>
+                <td>Concatenation</td>
+                <td><code>[1, 2] + [3]</code></td>
+                <td>[1, 2, 3]</td>
+            </tr>
+            <tr>
+                <td><strong>*</strong></td>
+                <td>Replication</td>
+                <td><code>[0] * 3</code></td>
+                <td>[0, 0, 0]</td>
+            </tr>
+            <tr>
+                <td><strong>in / not in</strong></td>
+                <td>Membership</td>
+                <td><code>5 in [1, 5]</code></td>
+                <td>True</td>
+            </tr>
+        </table>
+    </section>
+
+    <section>
+        <h2>4. List Methods (With Examples)</h2>
+        <p>These methods allow you to modify and analyze list data. Note that most of these modify the list <strong>in-place</strong>.</p>
+        
+        <div class="info-card">
+            <h3>Adding Elements</h3>
+            <ul>
+                <li><strong>append(item):</strong> Adds a single item to the very end.
+                    <br><code>L = [1, 2]</code> &rarr; <code>L.append(3)</code> &rarr; <code>[1, 2, 3]</code>
+                </li>
+                <li><strong>extend(list):</strong> Merges another list into the current one.
+                    <br><code>L = [1, 2]</code> &rarr; <code>L.extend([3, 4])</code> &rarr; <code>[1, 2, 3, 4]</code>
+                </li>
+                <li><strong>insert(index, item):</strong> Insets an item at a specific index, shifting others to the right.
+                    <br><code>L = [10, 30]</code> &rarr; <code>L.insert(1, 20)</code> &rarr; <code>[10, 20, 30]</code>
+                </li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h3>Removing Elements</h3>
+            <ul>
+                <li><strong>pop(index):</strong> Removes and <strong>returns</strong> the element. If no index is given, it removes the last one.
+                    <br><code>L = [5, 10, 15]</code> &rarr; <code>val = L.pop(1)</code> &rarr; <code>L is [5, 15], val is 10</code>
+                </li>
+                <li><strong>remove(value):</strong> Searches for the first occurrence of the value and deletes it.
+                    <br><code>L = [1, 2, 1, 3]</code> &rarr; <code>L.remove(1)</code> &rarr; <code>[2, 1, 3]</code>
+                </li>
+                <li><strong>clear():</strong> Deletes everything inside the list.
+                    <br><code>L = [1, 2, 3]</code> &rarr; <code>L.clear()</code> &rarr; <code>[]</code>
+                </li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h3>Ordering & Analysis</h3>
+            <ul>
+                <li><strong>sort():</strong> Arranges elements in ascending order. Use <code>sort(reverse=True)</code> for descending.
+                    <br><code>L = [3, 1, 2]</code> &rarr; <code>L.sort()</code> &rarr; <code>[1, 2, 3]</code>
+                </li>
+                <li><strong>reverse():</strong> Flips the list upside down.
+                    <br><code>L = [1, 2, 3]</code> &rarr; <code>L.reverse()</code> &rarr; <code>[3, 2, 1]</code>
+                </li>
+                <li><strong>count(value):</strong> Tells you how many times an element repeats.
+                    <br><code>L = [1, 2, 2, 3]</code> &rarr; <code>L.count(2)</code> &rarr; <code>2</code>
+                </li>
+                <li><strong>index(value):</strong> Finds the first position of an element.
+                    <br><code>L = [10, 20, 30]</code> &rarr; <code>L.index(20)</code> &rarr; <code>1</code>
+                </li>
+                <li><strong>len(list):</strong> Built-in function (not a method) to get the size.
+                    <br><code>len([5, 6, 7])</code> &rarr; <code>3</code>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>5. List Slicing Examples</h2>
+        <div class="definition-box" style="font-family: monospace; background: #1e1e1e; color: #dcdcdc;">
+            num = [10, 20, 30, 40, 50]<br>
+            print(num[1:4]) <span style="color: #6a9955;"># [20, 30, 40]</span><br>
+            print(num[:2]) <span style="color: #6a9955;"># [10, 20]</span><br>
+            print(num[::2]) <span style="color: #6a9955;"># [10, 30, 50]</span><br>
+            print(num[::-1]) <span style="color: #6a9955;"># [50, 40, 30, 20, 10]</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>6. Nested Lists</h2>
+        <p>A list can contain another list as an element. To access elements, use double brackets.</p>
+        <div class="definition-box" style="font-family: monospace; background: #1e1e1e; color: #dcdcdc;">
+            matrix = [[1, 2], [3, 4]]<br>
+            print(matrix[0]) <span style="color: #6a9955;"># [1, 2]</span><br>
+            print(matrix[0][1]) <span style="color: #6a9955;"># 2 (Row 0, Col 1)</span>
+        </div>
+    </section>
+
+    <section>
+        <h2>7. List vs Strings: Main Differences</h2>
+        <table class="tech-table">
+            <tr>
+                <th>Feature</th>
+                <th>Strings</th>
+                <th>Lists</th>
+            </tr>
+            <tr>
+                <td><strong>Mutability</strong></td>
+                <td>Immutable</td>
+                <td>Mutable</td>
+            </tr>
+            <tr>
+                <td><strong>Storage</strong></td>
+                <td>Only characters</td>
+                <td>Any data type</td>
+            </tr>
+            <tr>
+                <td><strong>In-place Change</strong></td>
+                <td>Not possible</td>
+                <td>Possible (L[i] = x)</td>
+            </tr>
+        </table>
+    </section>
     <footer style="text-align: center; margin-top: 50px; color: #95a5a6;">
         &copy; 2026 Class 11 Computer Science Study Portal
     </footer>
